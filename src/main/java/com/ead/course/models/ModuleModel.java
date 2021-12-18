@@ -6,8 +6,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.springframework.hateoas.RepresentationModel;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
@@ -16,7 +18,7 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "TB_MODULES")
-public class ModuleModel {
+public class ModuleModel extends RepresentationModel<ModuleModel> implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
