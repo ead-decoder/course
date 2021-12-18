@@ -8,6 +8,9 @@ import com.ead.course.repositories.LessonRepository;
 import com.ead.course.repositories.ModuleRepository;
 import com.ead.course.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -16,7 +19,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class CourseServiceImpl implements CourseService {
+ public class CourseServiceImpl implements CourseService {
 
     @Autowired
     CourseRepository courseRepository;
@@ -54,7 +57,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public List<CourseModel> findAll() {
-        return courseRepository.findAll();
+    public Page<CourseModel> findAll(Specification<CourseModel> spec, Pageable page) {
+        return courseRepository.findAll(spec, page);
     }
 }
