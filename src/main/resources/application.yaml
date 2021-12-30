@@ -19,7 +19,6 @@ spring:
     ansi:
       enabled: Always
 
-
 logging:
   level:
     com.ead: TRACE
