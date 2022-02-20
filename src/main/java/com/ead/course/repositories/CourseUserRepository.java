@@ -8,4 +8,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import java.util.UUID;
 
 public interface CourseUserRepository extends JpaRepository<CourseUserModel, UUID>, JpaSpecificationExecutor<CourseUserModel> {
+
+    boolean existsByCourseAndUserId(CourseModel courseModel, UUID userId);
 }
